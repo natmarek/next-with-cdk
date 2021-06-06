@@ -6,7 +6,7 @@ export default function Home() {
   const [message, setMessage] = useState("Something is not working!");
 
   useEffect(() => {
-    const url = "https://hn6kcsm0yb.execute-api.eu-west-1.amazonaws.com/prod/";
+    const url = process.env.ENDPOINT_URL;
     fetch(url)
       .then((response) => response.json())
       .then((data) => setMessage(JSON.stringify(data)));
